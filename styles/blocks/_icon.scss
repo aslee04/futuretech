@@ -12,14 +12,9 @@
 
     content: '';
     flex-shrink: 0;
+    background-image: url(../../icons/yellow-arrow-icon.svg);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-  }
-
-  &__yellow-arrow {
-    &::after {
-      background: url('../../icons/arrow-line_yellow.png');
-    }
   }
 }
