@@ -1,10 +1,33 @@
 @use '../helpers' as *;
 
 .header {
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  animation-name: scrolling-header;
+  animation-fill-mode: both;
+  animation-range: rem(50) rem(200);
+  animation-timeline: scroll();
+
+  @keyframes scrolling-header {
+    to {
+      box-shadow: 0 0 1rem 0 var(--color-dark-40);
+    }
+  }
+
   &__promo {
     padding-block: #{rem(20)};
     text-align: center;
+    background-color: var(--color-dark);
     border-bottom: var(--border);
+
+    @include laptop {
+      padding: rem(14) 0;
+
+      &-link {
+        font-size: rem(14);
+      }
+    }
 
     @include mobile {
       .icon {
@@ -29,12 +52,10 @@
       justify-content: space-between;
       column-gap: 1rem; 
       padding: 0;
+    }
 
-      .logo {
-        &__image {
-          height: rem(50);
-        }
-      }
+    @include laptop {
+      padding: rem(20) rem(16);
     }
 
     @include mobile {
@@ -48,11 +69,11 @@
     }
 
     @include mobile {
+      position: fixed;
       display: flex;
       flex-direction: column;
       justify-content: center;
       row-gap: 3rem;
-      position: fixed;
       padding: 1rem;
       background-color: var(--color-dark-10);
       transition-duration: var(--transition-duration);
@@ -93,7 +114,13 @@
       color: var(--color-gray-50);
 
       @include laptop {
+        font-size: rem(14);
         padding: rem(10) rem(18);
+      }
+
+      @include mobile {
+        font-size: rem(14);
+        padding: rem(8) rem(14);
       }
 
       &.is-active {
@@ -108,7 +135,13 @@
   
   &__contact-link {
 
+    @include laptop {
+      padding: rem(10) rem(14);
+      font-size: rem(14);
+    }
+
     @include mobile {
+      font-size: rem(14);
       width: 100%;
       max-width: rem(300);
       align-self: center;

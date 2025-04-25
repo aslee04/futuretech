@@ -1,1 +1,3 @@
-console.log('Hello world')
+import Header from './Header.js'
+
+new Header()

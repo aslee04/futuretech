@@ -1,0 +1,36 @@
+@use '../helpers' as *;
+
+.socials {
+    @include mobile {
+        order: -1;
+    }
+
+    &-list {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        column-gap: rem(20);
+
+        @include laptop {
+            column-gap: rem(14);
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    &-item {
+        display: flex;
+    }
+
+    &-link {
+        color: var(--color-light);
+
+        @include mobile {
+            width: rem(20);
+            height: rem(20);
+        }
+    }
+}

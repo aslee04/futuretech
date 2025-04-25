@@ -1,0 +1,17 @@
+@use '../helpers/' as *;
+
+.logo { 
+    &__image {
+        height: rem(50);
+
+        @include laptop {
+            max-width: rem(143);
+            height: rem(40);
+        }
+
+        @include mobile {
+            max-width: rem(125);
+            height: rem(35); 
+         }
+    }
+}
