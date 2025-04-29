@@ -1,0 +1,95 @@
+@use '../helpers' as *;
+
+.hero {
+    &-main {
+        display: grid;
+        grid-template-columns: 60% auto;
+        // grid-template-areas: 
+        //     'body hero-preview',
+        //     'metrics hero-preview';
+
+        &__body {
+            // grid-area: body;
+            padding-top: rem(150);
+            padding-right: rem(50);
+            padding-bottom: rem(100);
+
+            .section-title {
+                font-family: var(--font-family-accent);
+                font-weight: 500;
+                color: var(--color-light);
+
+                &:not(:last-child) {
+                    margin-bottom: rem(20);
+                }
+            }
+
+            .section-subtitle {
+                @include fluid-text(30, 18);
+
+                font-family: var(--font-family-accent);
+                font-weight: 500;
+                color: var(--color-dark-40);
+
+                &:not(:last-child) {
+                    margin-bottom: rem(30);
+                }
+            }
+
+            .section-description p {
+                font-weight: 400;
+                color: var(--color-dark-50);
+            }
+        }
+
+        .metrics {
+            // grid-area: metrics;
+
+            &-list {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            &-item {
+                display: flex;
+                flex-direction: column-reverse;
+                row-gap: rem(10);
+                padding: rem(50);
+
+                :first-child {
+                    padding-left: 0;
+                }
+
+                :not(:last-child) {
+                    border-right: var(--border);
+                }
+
+                .metrics-key {}
+
+                .metrics-value {}
+            }    
+        }
+        .preview {
+            // grid-area: hero-preview;
+
+            .team {
+                &-person {}
+            }
+            &-body {}
+            &-title {}
+            &-subtitle {}
+        }
+    }
+    &-advantages {
+        &__list {}
+        &__item {
+            .advantage-card {
+                &__image {}
+                &__link {}
+                &__title {}
+                &__subtitle {}
+                &__details {}
+            }
+        }
+    }
+}

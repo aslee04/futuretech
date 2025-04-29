@@ -792,4 +792,51 @@ svg * {
   }
 }
 
+.hero-main {
+  display: grid;
+  grid-template-columns: 60% auto;
+}
+.hero-main__body {
+  padding-top: 9.375rem;
+  padding-right: 3.125rem;
+  padding-bottom: 6.25rem;
+}
+.hero-main__body .section-title {
+  font-family: var(--font-family-accent);
+  font-weight: 500;
+  color: var(--color-light);
+}
+.hero-main__body .section-title:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+.hero-main__body .section-subtitle {
+  font-size: clamp(1.125rem, 0.9338235294rem + 0.7843137255vw, 1.875rem);
+  font-family: var(--font-family-accent);
+  font-weight: 500;
+  color: var(--color-dark-40);
+}
+.hero-main__body .section-subtitle:not(:last-child) {
+  margin-bottom: 1.875rem;
+}
+.hero-main__body .section-description p {
+  font-weight: 400;
+  color: var(--color-dark-50);
+}
+.hero-main .metrics-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.hero-main .metrics-item {
+  display: flex;
+  flex-direction: column-reverse;
+  row-gap: 0.625rem;
+  padding: 3.125rem;
+}
+.hero-main .metrics-item :first-child {
+  padding-left: 0;
+}
+.hero-main .metrics-item :not(:last-child) {
+  border-right: var(--border);
+}
+
 /*# sourceMappingURL=main.css.map */
