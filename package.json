@@ -4,12 +4,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass-watch": "sass --watch ."
+    "sass-watch": "sass --watch .",
+    "start": "start"
   },
-  "author": "",
+  "author": "aslee04 <mukhammadiev05@gmail.comm>",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "sass": "^1.86.3"
-  }
+  },
+  "repository": "https://github.com/aslee04/futuretech.git"
 }
