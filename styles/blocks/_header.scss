@@ -43,7 +43,7 @@
   }
 
   &__body {
-    padding-block: #{rem(26)};
+    padding: rem(24) 0;
     background-color: var(--color-dark-10);
 
     &-inner {
@@ -111,6 +111,7 @@
     &-link {
       font-size: 18px;
       padding: rem(14) rem(24);
+      line-height: rem(27);
       color: var(--color-gray-50);
 
       @include laptop {
@@ -119,14 +120,14 @@
       }
 
       @include mobile {
-        font-size: rem(14);
         padding: rem(8) rem(14);
       }
 
       &.is-active {
         border: var(--border);
         border-radius: #{rem(10)};
-        font-weight: 500;
+        line-height: rem(27);
+        height: rem(55);
         background-color: var(--color-dark);
         color: var(--color-light);
       }

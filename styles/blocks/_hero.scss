@@ -2,25 +2,41 @@
 
 .hero {
     &-main {
-        display: grid;
-        grid-template-columns: 60% auto;
         // grid-template-areas: 
         //     'body hero-preview',
         //     'metrics hero-preview';
 
+        @include tablet-above {
+            display: grid;
+            grid-template-columns: 60% auto;
+        }
+
         &__body {
             // grid-area: body;
             padding-top: rem(150);
-            padding-right: rem(50);
-            padding-bottom: rem(100);
+
+            @include laptop {
+                padding-top: rem(100);
+            }
+
+            @include tablet {
+                padding-block: rem(40) 0;
+            }
 
             .section-title {
                 font-family: var(--font-family-accent);
                 font-weight: 500;
                 color: var(--color-light);
+                margin-bottom: rem(20);
 
-                &:not(:last-child) {
-                    margin-bottom: rem(20);
+                @include laptop {
+                    font-size: rem(55);
+                    margin-bottom: rem(14);
+                }
+
+                @include mobile {
+                    font-size: rem(30);
+                    margin-bottom: rem(10);
                 }
             }
 
@@ -30,24 +46,48 @@
                 font-family: var(--font-family-accent);
                 font-weight: 500;
                 color: var(--color-dark-40);
+                margin-bottom: rem(30);
 
-                &:not(:last-child) {
-                    margin-bottom: rem(30);
+                @include laptop {
+                    font-size: rem(22);
+                    margin-bottom: rem(20);
+                }
+
+                @include mobile {
+                    font-size: rem(18);
+                    margin-bottom: rem(14);
                 }
             }
 
             .section-description p {
                 font-weight: 400;
                 color: var(--color-dark-50);
+
+                @include laptop {
+                    font-size: rem(16);
+                }
+
+                @include mobile {
+                    font-size: rem(14);
+                }
             }
         }
 
         .metrics {
+            border-top: var(--border);
+            margin-top: rem(100);
             // grid-area: metrics;
 
             &-list {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
+            }
+
+            @include tablet {
+                &::before {
+                    width: 100vw;
+                    right: calc(var(--container-padding-x) * -1);
+                }
             }
 
             &-item {
@@ -56,39 +96,205 @@
                 row-gap: rem(10);
                 padding: rem(50);
 
-                :first-child {
+                &:first-child {
                     padding-left: 0;
                 }
 
-                :not(:last-child) {
+                &:not(:last-child) {
                     border-right: var(--border);
                 }
 
-                .metrics-key {}
+                @include laptop {
+                    row-gap: rem(2);
+                    padding: rem(30);
+                }
 
-                .metrics-value {}
-            }    
+                @include tablet {
+                    row-gap: 0;
+                    padding: rem(20);
+                }
+
+                .metrics-key {
+                    font-size: rem(18);
+
+                    @include laptop {
+                        font-size: rem(14);
+                    }
+                }
+
+                .metrics-value {
+                    font-weight: 600;
+                    font-size: rem(40);
+
+                    @include laptop {
+                        font-size: rem(30);
+                    }
+                }
+            }
+
+            &-sign {
+                color: var(--color-accent);
+            }
         }
+
         .preview {
             // grid-area: hero-preview;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: start;
+            row-gap: rem(30);
+            padding-left: rem(80);
+            padding-bottom: rem(80);
+            background: url('../../images/preview-bg.png') 0/cover no-repeat;
+
+            @include laptop {
+                row-gap: rem(20);
+                padding-left: rem(50);
+                padding-bottom: rem(50);
+            }
+
+            @include tablet {
+                width: 100vw;
+                padding-top: rem(100);
+                margin-left: calc(var(--container-padding-x) * -1);
+                background-size: contain;
+            }
 
             .team {
-                &-person {}
+                --personImageSize: #{rem(60)};
+
+                display: flex;
+                border: var(--border);
+                border-radius: rem(100);
+                padding: rem(10);
+                background-color: var(--color-dark-10);
+
+                @include laptop {
+                    --personImageSize: #{rem(50)};
+
+                    padding: rem(8);
+                }
+
+                &-person {
+                    width: var(--personImageSize);
+                    height: var(--personImageSize);
+                    border: rem(2) solid var(--color-dark-40);
+                    background-color: var(--color-dark-15);
+                    border-radius: 50%;
+
+                    &:not(:first-child) {
+                        margin-left: calc(var(--personImageSize) / 4 * -1);
+                    }
+
+                    @include laptop {
+                        border-width: rem(1);
+                    }
+                }
             }
-            &-body {}
-            &-title {}
-            &-subtitle {}
+
+            &-body {
+                display: grid;
+                row-gap: rem(14);
+
+                @include laptop {
+                    row-gap: rem(6);
+                }
+            }
+
+            &-title {
+                @include laptop {
+                    font-size: rem(20);
+                }
+            }
+
+            &-subtitle {
+                @include laptop {
+                    font-size: rem(16);
+                }
+            }
         }
     }
+
     &-advantages {
-        &__list {}
+        border-block: var(--border);
+
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
         &__item {
+            --paddingX: #{rem(80)};
+
+            padding-block: rem(50);
+
+            &:not(:first-child) {
+                padding-left: var(--paddingX);
+            }
+
+            &:not(:last-child) {
+                padding-right: var(--paddingX);
+                border-right: var(--border);
+            }
+
+            @include laptop {
+                --paddingX: #{rem(50)};
+
+                padding-block: rem(40);
+            }
+
             .advantage-card {
-                &__image {}
-                &__link {}
+                display: grid;
+                row-gap: rem(30);
+
+                @include laptop {
+                    row-gap: rem(20);
+                }
+
+                &__image {
+                    @include laptop {
+                        width: rem(40);
+                    }
+                }
+
+                &__link {
+                    --circleSize: #{rem(52)};
+                    --circleMarginLeft: #{rem(20)};
+
+                    position: relative;
+                    display: grid;
+                    row-gap: rem(4);
+                    padding-right: calc(var(--circleSize) + var(--circleMarginLeft));
+
+                    &::after {
+                        @include square(var(--circleSize));
+                        @include abs-y;
+
+                        content: '';
+                        right: 0;
+                        background: url('../../icons/black-arrow-icon.svg') center no-repeat
+                        var(--color-accent);
+                        border-radius: 50%;
+                    }
+
+                    @include laptop {
+                        --circleSize: #{rem(44)};
+                        --circleMarginLeft: #{rem(14)};
+
+                        row-gap: rem(2);
+                    }
+                }
+
                 &__title {}
+
                 &__subtitle {}
-                &__details {}
+
+                &__details {
+                    @include fluid-text(20, 14);
+
+                    font-family: var(--font-family-accent);
+                }
             }
         }
     }
