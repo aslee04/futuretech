@@ -93,6 +93,7 @@
             &-item {
                 display: flex;
                 flex-direction: column-reverse;
+                justify-content: start;
                 row-gap: rem(10);
                 padding: rem(50);
 
@@ -220,8 +221,10 @@
         border-block: var(--border);
 
         &__list {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            @include tablet-above {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         &__item {
@@ -229,19 +232,30 @@
 
             padding-block: rem(50);
 
-            &:not(:first-child) {
-                padding-left: var(--paddingX);
-            }
-
-            &:not(:last-child) {
-                padding-right: var(--paddingX);
-                border-right: var(--border);
-            }
-
             @include laptop {
                 --paddingX: #{rem(50)};
-
+                padding-right: rem(30);
                 padding-block: rem(40);
+            }
+
+            @include laptop-above {
+                &:not(:first-child) {
+                    padding-left: var(--paddingX);
+                }
+
+                &:not(:last-child) {
+                    padding-right: var(--paddingX);
+                    border-right: var(--border);
+                }
+            }
+
+            @include tablet {
+                padding-block: rem(30);
+                padding-right: 0;
+
+                &:not(:last-child) {
+                    border-bottom: var(--border);
+                }
             }
 
             .advantage-card {
@@ -252,9 +266,17 @@
                     row-gap: rem(20);
                 }
 
+                @include mobile {
+                    row-gap: rem(14);
+                }
+
                 &__image {
                     @include laptop {
                         width: rem(40);
+                    }
+
+                    @include mobile {
+                        width: rem(30);
                     }
                 }
 
@@ -284,11 +306,24 @@
 
                         row-gap: rem(2);
                     }
+
+                    @include mobile {
+                        --circleSize: #{rem(40)};
+                    }
                 }
 
-                &__title {}
+                &__title {
+                    @include mobile {
+                        font-size: rem(16);
+                        font-weight: 500;
+                    }
+                }
 
-                &__subtitle {}
+                &__subtitle {
+                    @include mobile {
+                        font-size: rem(14);
+                    }
+                }
 
                 &__details {
                     @include fluid-text(20, 14);

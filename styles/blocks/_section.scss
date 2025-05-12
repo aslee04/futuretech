@@ -1,0 +1,70 @@
+@use '../helpers' as *;
+
+.features {
+
+  &-header {
+    padding-block: fluid(120, 40);
+    border-bottom: 1px solid var(--color-dark-15);
+    background-color: var(--color-dark-10);
+  }
+
+  &-info {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .info {
+      .section-title {
+        font-weight: 500;
+        margin-top: rem(16);
+
+        @include laptop {
+          font-size: rem(44);
+          margin-top: rem(10);
+        }
+
+        @include tablet {
+          font-size: rem(28);
+        }
+      }
+    }
+  }
+
+  &-body {
+
+    .list {
+
+      &-item {
+
+        .card {
+
+          &-preview {
+
+            &__main {}
+
+            &__info {}
+
+            &__image {}
+
+            &__title {}
+
+            &__description {}
+          }
+
+          &-body {
+
+            .card-cell {
+
+              &__title {}
+
+              &__description {}
+            }
+          }
+
+          &-grid {}
+        }
+      }
+    }
+  }
+}

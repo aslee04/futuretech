@@ -110,3 +110,22 @@ a, button {
 .main {
   flex-grow: 1;
 }
+
+.section-badge {
+  font-size: rem(20);
+  font-weight: 500;
+  padding: rem(6) rem(10);
+  border-radius: rem(4);
+  width: rem(203);
+  text-align: center;
+  background-color: var(--color-dark-20);
+  color: var(--color-light);
+
+  @include laptop {
+    font-size: rem(16);
+  }
+
+  @include tablet {
+    font-size: rem(14);
+  }
+}
