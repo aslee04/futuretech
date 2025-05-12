@@ -1,6 +1,7 @@
 @use '../helpers' as *;
 
 .features {
+  border-block: var(--border);
 
   &-header {
     padding-block: fluid(120, 40);
@@ -36,10 +37,34 @@
     .list {
 
       &-item {
+        &:not(:last-child) {
+          border-bottom: var(--border);
+        }
 
         .card {
+          display: grid;
+          grid-template-columns: 37.5% auto;
+
+          @include tablet {
+            display: flex;
+            flex-direction: column;
+            column-gap: rem(20);
+          }
 
           &-preview {
+            border-right: var(--border);
+            padding-block: rem(155);
+            padding-right: rem(80);
+
+            @include laptop {
+              padding-block: rem(122);
+              padding-right: rem(60);
+            }
+
+            @include tablet {
+              border-right: 0;
+              padding-right: 0;
+            }
 
             &__main {}
 
@@ -53,16 +78,57 @@
           }
 
           &-body {
+            padding-block: rem(80);
+            padding-left: rem(80);
+
+            @include laptop {
+              padding-block: rem(60);
+              padding-left: rem(60);
+            }
+          }
+
+          &-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: rem(20);
+
+            //@include tablet {
+            //  display: flex;
+            //  flex-direction: column;
+            //  column-gap: rem(20);
+            //}
 
             .card-cell {
+              padding: rem(40);
+              border: 1px solid var(--color-dark-15);
+              border-radius: rem(12);
+              background-color: var(--color-dark-10);
 
-              &__title {}
+              @include laptop {
+                padding: rem(30);
+                border-radius: rem(10);
+              }
+
+              @include tablet {
+                padding: rem(24);
+              }
+
+              &__title {
+                font-size: rem(24);
+                font-weight: 500;
+
+                @include laptop {
+                  font-size: rem(20);
+                }
+
+                @include tablet {
+                  font-size: rem(18);
+                }
+              }
 
               &__description {}
             }
           }
-
-          &-grid {}
         }
       }
     }

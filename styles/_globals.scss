@@ -114,14 +114,15 @@ a, button {
 .section-badge {
   font-size: rem(20);
   font-weight: 500;
+  justify-self: start;
   padding: rem(6) rem(10);
   border-radius: rem(4);
-  width: rem(203);
   text-align: center;
   background-color: var(--color-dark-20);
   color: var(--color-light);
 
   @include laptop {
+    padding: rem(4) rem(8);
     font-size: rem(16);
   }
 
