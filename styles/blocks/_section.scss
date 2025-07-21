@@ -1,6 +1,6 @@
 @use '../helpers' as *;
-
-.features {
+// Features
+.section {
   border-block: var(--border);
 
   &-header {
@@ -62,17 +62,16 @@
             }
 
             @include tablet {
+              padding-block: rem(60);
               border-right: 0;
               padding-right: 0;
             }
 
-            &__main {}
-
-            &__info {}
-
-            &__image {}
-
-            &__title {}
+            &__title {
+              @include tablet {
+                font-size: rem(24);
+              }
+            }
 
             &__description {}
           }
@@ -81,9 +80,9 @@
             padding-block: rem(80);
             padding-left: rem(80);
 
-            @include laptop {
+            @include tablet {
               padding-block: rem(60);
-              padding-left: rem(60);
+              padding-left: 0;
             }
           }
 
@@ -127,6 +126,74 @@
               }
 
               &__description {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Blog
+
+.section {
+  &-header {}
+  &-info {}
+
+  .tabs {
+
+    &-list {
+      border-bottom: var(--border);
+
+      &__buttons {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: rem(20);
+        padding-block: fluid(50, 20);
+
+        @include laptop {
+          column-gap: rem(14);
+        }
+      }
+
+      &__button {
+        font-size: rem(18);
+        font-weight: 500;
+        color: var(--color-gray-60);
+        padding: fluid(30, 18) rem(11);
+        border: var(--border);
+        border-radius: rem(8);
+        background-color: transparent;
+
+        @include laptop {
+          font-size: rem(14);
+        }
+
+        &.is-active {
+          background-color: var(--color-dark-10);
+          color: var(--color-light);
+          pointer-events: none;
+        }
+
+        @include hover {
+          border-color: var(--color-accent);
+          color: var(--color-accent);
+        }
+      }
+    }
+
+    &-body {
+      .tabs-content {
+        .list {
+          &-item {
+            .blog-card {
+              &__author {}
+              &__body {
+                .date {}
+                .info {}
+                .actions {}
+              }
+              &__link {}
             }
           }
         }
